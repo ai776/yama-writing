@@ -1,0 +1,24 @@
+---
+alwaysApply: false
+---
+
+# ⚠️ このルールは `.cursor/skills/book-writer-youtube/` に統合済みです
+
+セミナー文字起こしから書籍を作成する場合は、Agent Skills を使用してください。
+
+## 統合先
+
+| 旧ルールの内容 | 統合先ファイル |
+|----------------|---------------|
+| 制作フロー（目次→執筆→あとがき→レビュー） | `.cursor/skills/book-writer-youtube/SKILL.md` |
+| AI表現回避ルール | `.cursor/skills/book-writer-youtube/ai-writing-guide.md` |
+| 文体・表現ガイドライン | `.cursor/skills/book-writer-youtube/writing-style-rules.md` |
+| ナレッジベース制作ルール | `.cursor/rules/bookwriter-knowledge.mdc` |
+
+## 使い方
+
+Agentモードで以下のように指示するだけでスキルが自動適用されます:
+
+```
+「文字起こしデータ.md をもとに書籍を作成して。保存先は output/ です」
+```

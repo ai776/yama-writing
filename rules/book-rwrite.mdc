@@ -1,0 +1,24 @@
+---
+alwaysApply: false
+---
+
+# ⚠️ このルールは `.cursor/skills/book-writer-youtube/` に統合済みです
+
+書籍のリボーン（リライト）を行う場合は、Agent Skills を使用してください。
+`source_mode: knowledge_only` で既存原稿をナレッジとして投入することで、リボーン・リライトに対応できます。
+
+## 統合先
+
+| 旧ルールの内容 | 統合先ファイル |
+|----------------|---------------|
+| リボーン戦略・執筆フロー | `.cursor/skills/book-writer-youtube/SKILL.md`（knowledge_only モード） |
+| ナレッジ取り込み | `.cursor/skills/book-knowledge-ingest/SKILL.md` |
+| AI表現回避・脱AI推敲 | `.cursor/skills/book-writer-youtube/ai-writing-guide.md` |
+
+## 使い方
+
+Agentモードで以下のように指示するだけでスキルが自動適用されます:
+
+```
+「knowledge/ フォルダの既存原稿をリボーンして新しい書籍を作成して。保存先は output/ です」
+```

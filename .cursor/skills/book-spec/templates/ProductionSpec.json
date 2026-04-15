@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProductionSpec",
+  "description": "書籍の制作条件設計書。トーン・分量・図表方針・引用ルールを定義する。",
+  "type": "object",
+  "required": ["source_type", "tone", "volume", "citation_format"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "書籍タイトル（仮）"
+    },
+    "author": {
+      "type": "string",
+      "description": "著者名"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "制作開始日"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["seminar", "youtube", "reborn"],
+      "description": "情報源タイプ"
+    },
+    "tone": {
+      "type": "object",
+      "properties": {
+        "base": { "type": "string", "description": "基本文体" },
+        "colloquial_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "口語許容度"
+        },
+        "banned_expressions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "著者固有の禁止表現"
+        }
+      },
+      "required": ["base", "colloquial_level"]
+    },
+    "volume": {
+      "type": "object",
+      "properties": {
+        "total_chars": { "type": "integer", "description": "総文字数目安" },
+        "chapter_count": { "type": "integer", "description": "章数" },
+        "chars_per_chapter": { "type": "integer", "description": "章ごと文字数予算" },
+        "preface_chars": { "type": "integer", "description": "まえがき文字数" },
+        "afterword_chars": { "type": "integer", "description": "あとがき文字数" }
+      },
+      "required": ["total_chars", "chapter_count"]
+    },
+    "visuals": {
+      "type": "object",
+      "properties": {
+        "frequency": { "type": "string", "description": "挿入頻度" },
+        "types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "図のタイプ"
+        },
+        "placement_rule": { "type": "string", "description": "挿入位置ルール" },
+        "caption_style": { "type": "string", "description": "キャプション形式" }
+      }
+    },
+    "citation_format": {
+      "type": "object",
+      "properties": {
+        "style": { "type": "string", "description": "引用スタイル" },
+        "timestamp_required": { "type": "boolean" },
+        "speaker_required": { "type": "boolean" }
+      },
+      "required": ["style"]
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "filename": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "operational_rules": {
+      "type": "object",
+      "properties": {
+        "single_file": { "type": "boolean", "default": true },
+        "source_strict": { "type": "boolean", "default": true },
+        "approval_gates": { "type": "boolean", "default": true }
+      }
+    }
+  }
+}

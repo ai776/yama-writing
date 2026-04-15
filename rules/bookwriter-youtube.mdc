@@ -1,0 +1,23 @@
+---
+alwaysApply: false
+---
+
+# ⚠️ このルールは `.cursor/skills/book-writer-youtube/` に統合済みです
+
+YouTube動画の文字起こしから書籍を作成する場合は、Agent Skills を使用してください。
+
+## 統合先
+
+| 旧ルールの内容 | 統合先ファイル |
+|----------------|---------------|
+| YouTube動画ベースの制作フロー | `.cursor/skills/book-writer-youtube/SKILL.md` |
+| 引用・出典ルール | `.cursor/skills/book-knowledge-ingest/SKILL.md` |
+| AI表現回避ルール | `.cursor/skills/book-writer-youtube/ai-writing-guide.md` |
+
+## 使い方
+
+Agentモードで以下のように指示するだけでスキルが自動適用されます:
+
+```
+「文字起こしデータ.md をもとに書籍を作成して。保存先は output/ です」
+```
