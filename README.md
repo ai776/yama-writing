@@ -30,6 +30,81 @@
 - 文体・NG表現は `◆ AI生成文章の特徴と執筆のポイント.md` を優先します。
 - 書籍制作を始める場合は、まず `book-factory` を使い、必要に応じて下位 Skill を使います。
 
+## Skills の使い方
+
+このリポジトリでは、書籍制作の作業単位を Skills として管理しています。正本は `.claude/skills/`、Codex から使う入口は `.agents/skills` です。
+
+### まず使う Skill
+
+新しい書籍を作るときは、基本的に `book-factory` から始めます。
+
+```text
+/book-factory AI活用で売上を3倍にする方法
+```
+
+ペルソナや条件を指定したい場合は、次のように追加します。
+
+```text
+/book-factory
+テーマ: 不用品回収ビジネスの始め方
+ペルソナ: 副業を探している30代サラリーマン
+分量: 5万字級
+進行: 全部自動
+```
+
+`book-factory` は、`tldv/` から関連ナレッジを探し、戦略設計、制作仕様、目次、章設計、本文、QA、エクスポートまでをまとめて進める入口です。
+
+### よく使う指示例
+
+```text
+/book-factory 全部自動で AI活用で売上を3倍にする方法
+```
+
+```text
+/book-factory 5万字級で AIと外注を使って売上を伸ばす本を作って
+```
+
+```text
+既存原稿を book-review でレビューして
+```
+
+```text
+review の指摘を book-rewrite で反映して
+```
+
+```text
+完成原稿を book-export で docx にして
+```
+
+### 主要 Skill の役割
+
+- `book-factory`: テーマ入力から書籍一式を自動制作する入口。
+- `book-ingest`: 素材を整形し、後工程で使いやすいテキストにする。
+- `book-knowledge`: 文字起こしから主張、理由、具体例、数値、体験談を抽出する。
+- `book-strategy`: 読者、CTA、核心メッセージなどの戦略を設計する。
+- `book-spec`: 文字数、章数、文体、禁止表現、引用方針などの制作条件を決める。
+- `book-structure`: 目次と章ごとの文字数配分を作る。
+- `book-chapter-blueprint`: 各章の狙い、壊す誤解、入れるべき要素を設計する。
+- `book-heading`: 章タイトルと小見出しを整える。
+- `book-draft`: 承認済みの構成に沿って本文を書く。
+- `book-qa`: 誤字脱字、論理、文体、AIっぽさ、事実関係をチェックする。
+- `book-review`: 完成原稿を編集者視点でレビューし、修正指示を作る。
+- `book-rewrite`: レビュー指示に沿って原稿を修正する。
+- `book-consistency`: 章間の定義、数値、主張、推奨内容の矛盾を確認する。
+- `book-export`: Markdown 原稿を docx や PDF に変換する。
+
+### 制作フロー
+
+1. `book-factory` でテーマを指定する。
+2. `tldv/` から関連する情報源を抽出する。
+3. `StrategySpec.md`、`ProductionSpec.md`、`BookSpec.json` を作る。
+4. `toc.md`、`chapter_blueprints.md`、`heading_spec.md` を作る。
+5. 本文 Markdown を作成する。
+6. `book-qa`、`book-consistency`、必要に応じて `book-review` と `book-rewrite` で整える。
+7. `book-export` で `docx` などに変換する。
+
+「全部自動で」と指定した場合は、途中確認を最小限にして、完成原稿の確認まで一気に進めます。
+
 ## 主な出力ファイル
 
 `output/ai-katsuyou-uriage-3bai/` には、本文以外に次の制作過程ファイルがあります。
