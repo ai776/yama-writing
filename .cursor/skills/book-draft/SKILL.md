@@ -9,20 +9,23 @@ tags:
   - writing
 ---
 
-# book-draft — ⑥ 本文専門
+# book-draft — ⑨ 本文専門
 
-承認済み目次・見出し体系に従い、プロのブックライターとして章ごとに本文を執筆する。
+承認済み目次・見出し体系・Blueprint（章設計図）に従い、プロのブックライターとして章ごとに本文を執筆する。
+Blueprint（`chapter_blueprints.md`）の「章の核心」「禁止事項」「優先順位ルール」「ストーリー構造」を必ず参照し、
+見出しの文言に引きずられない、章の意図通りの本文を執筆する。
+knowledge_base.md がある場合は、タグ付きナレッジを情報源として活用する。
 
 ## Inputs / Outputs
 
-- **In:** `BookSpec.json`, `toc.md`, `chapter_budget.md`, `heading_spec.md`, `cleaned_transcript.md`
+- **In:** `BookSpec.json`, `toc.md`, `chapter_budget.md`, `chapter_blueprints.md`（⑦の出力）, `heading_spec.md`, `knowledge_base.md`（あれば）, `cleaned_transcript.md`
 - **Out:** `{書籍タイトル}.md`（単一ファイルに追記）
 
 ## ワークフロー
 
-1. **サンプル実演**（300〜600字）→ 3段階レビュー: book-qa(G6-Q) → book-producer(G6-P) → 著者承認(G6-H) で文体確定
-2. **章ごと執筆** → 各章を3段階レビュー: book-qa(G6-Q) → book-producer(G6-P) → 著者承認(G6-H)
-3. **あとがき** → 著者になりきって執筆 → 3段階レビュー: book-qa(G6-Q) → book-producer(G6-P) → 著者承認(G6-H)
+1. **サンプル実演**（300〜600字）→ 3段階レビュー: book-qa(G9-Q) → book-producer(G9-P) → 著者承認(G9-H) で文体確定
+2. **章ごと執筆** → 各章を3段階レビュー: book-qa(G9-Q) → book-producer(G9-P) → 著者承認(G9-H)
+3. **あとがき** → 著者になりきって執筆 → 3段階レビュー: book-qa(G9-Q) → book-producer(G9-P) → 著者承認(G9-H)
 
 絶対ルール:
 - 単一ファイルに追記（分割禁止）
@@ -37,4 +40,5 @@ tags:
 | ファイル | いつ読むか |
 |---------|-----------|
 | [references/writing_guidelines.md](references/writing_guidelines.md) | 文体・表現の詳細ルール（語尾、強調、口語調整等）を確認するとき |
+| [references/cta_patterns.md](references/cta_patterns.md) | CTA配置・表現の型を確認するとき（特に最終章・あとがき執筆時） |
 | [templates/chapter_draft.md](templates/chapter_draft.md) | 章の出力フォーマットを確認するとき |

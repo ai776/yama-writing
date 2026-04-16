@@ -43,6 +43,32 @@ tags:
 
 BookSpec 承認まで実行スキルを呼び出してはならない。
 
+## オートパイロットモード（book-factory 連携）
+
+book-factory から呼び出された場合、以下のルールでオートパイロット動作する:
+
+### 変更点
+
+1. **ヒアリング省略** — book-strategy / book-spec のヒアリングは省略し、テーマとtldvナレッジから自動推論
+2. **承認ゲート簡略化** — 4箇所のみ（G-0: ナレッジ選定, G-1: BookSpec, G-3: 構成, G-4: 完成原稿）
+3. **QAセルフチェック** — book-qa は実行するが、プロデューサーゲート(G{n}-P)は自動パスする
+4. **出力先** — `output/{テーマスラッグ}/` に全成果物を集約
+
+### オートパイロット時のワークフロー
+
+```
+テーマ受領 → tldv検索(G-0) → BookSpec自動生成(G-1)
+→ ingest → knowledge → structure → title
+→ chapter-blueprint → heading(G-3)
+→ draft(章ごと) → consistency → figdesign → figgen(G-4)
+→ export
+```
+
+### 判定基準
+
+- book-factory から `mode: "autopilot"` が指定されている場合に適用
+- ユーザーが「全部自動で」と指示した場合は G-0〜G-3 も省略可
+
 ## 工程別の重要注意事項
 
 ### ④ book-knowledge（ナレッジ生成）

@@ -1,0 +1,34 @@
+{
+  "name": "bookwriter",
+  "version": "0.1.0",
+  "description": "tldvナレッジを使って書籍制作パイプラインを実行するCodexローカルプラグイン。",
+  "author": {
+    "name": "Local Workspace"
+  },
+  "homepage": ".",
+  "repository": ".",
+  "license": "UNLICENSED",
+  "keywords": [
+    "book",
+    "writing",
+    "tldv",
+    "publishing",
+    "workflow"
+  ],
+  "interface": {
+    "displayName": "Bookwriter",
+    "shortDescription": "tldvナレッジから書籍を制作",
+    "longDescription": "このワークスペースのtldv文字起こしと既存Bookwriter Skillsを使い、テーマからBookSpec、構成、本文、図表、エクスポートまで進めるためのローカルプラグインです。",
+    "developerName": "Local Workspace",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "/book-factory AI活用で売上を3倍にする方法",
+      "/book-factory 不用品回収ビジネスの始め方",
+      "/book-factory 全部自動で 中古アパート投資の教科書"
+    ]
+  }
+}

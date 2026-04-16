@@ -1,6 +1,7 @@
 # 見出し設計書 — {書籍タイトル}
 
 > 設計日: {date} | 章数: {chapter_count}
+> ※ 各章のBlueprint（章設計図）は `chapter_blueprints.md` を参照
 
 ## 命名規則
 

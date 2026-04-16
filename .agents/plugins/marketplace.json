@@ -1,0 +1,20 @@
+{
+  "name": "bookwriter-local",
+  "interface": {
+    "displayName": "Bookwriter Local"
+  },
+  "plugins": [
+    {
+      "name": "bookwriter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bookwriter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
